@@ -1,25 +1,19 @@
 
 Librarian (system, program)
 Books
-    see all main.books (get list of main.books)
-    search book (whole name, part of name?)
-    add book?
-    borrow book - join book and client
-    return book
-					Client borrows book: Book list updated ?
+    see all books
+    search book
+        ? do we add more books to database?
+
 Client
-    see all main.clients
-    search main.clients
-    >remove booksBorrowed!
+    see all clients
+    search clients
+        ? do we add more books to database?
 
 Booking
-    borrow book - join book id and client id >
-    return book - update booking table >
+    borrow book - join book id and client id
+    > add message after booking
+    > see all bookings
+        ? return book?
 
-    1. system input - insert client ID
-
-
-(Client returns book
-				Book is late: Client info updated: Minus points : Blocked
-				Book not late: Book list updated)
 
