@@ -19,13 +19,14 @@ public class ConnectionInitializer {
 
         try {
             connection = DriverManager.getConnection(url, dbUsername, dbPassword);
-            System.out.println("<<<< Connection to database successful >>>>");
+            System.out.println("<<<<< Connection to database successful >>>>>");
         } catch (Exception exception) {
             exception.printStackTrace();
         }
 
     }
     public PreparedStatement getPreparedStatement(String query) throws SQLException {
+
         return connection.prepareStatement(query);
     }
 }
