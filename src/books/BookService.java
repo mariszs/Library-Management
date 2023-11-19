@@ -21,14 +21,17 @@ public class BookService {
         }
     }
 
-    public void findBookByName(String bookName) {
+    public Book findBookByName(String bookName) {
         try {
-
-            System.out.println(this.bookRepository.findBookByName(bookName));
+            return this.bookRepository.findBookByName(bookName);
         } catch (Exception exception){
             System.out.println(exception.getMessage());
+
         }
+        return null;
     }
+
+
 
 
 }

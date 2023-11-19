@@ -29,17 +29,28 @@ public class Main {
 
         switch (userChoice) {
             case "1":
-                String valueToFind = getUserInput("Enter book name to find:");
-                bookController.findBookByName(valueToFind); // message as parameter
-                break;
-            case "2":
                 bookController.displayAllBooks();
                 break;
+            case "2":
+                String valueToFind = getUserInput("Enter book name to find:");
+                bookController.findBookByName(valueToFind);
+                break;
             case "3":
+                clientController.displayAllClients();
                 break;
             case "4":
+                String nameToFind = getUserInput("Enter client name to find:");
+                clientController.findClientByName(nameToFind);
                 break;
             case "5":
+                bookingController.displayAllBookings();
+                break;
+            case "6":
+                String bookName = getUserInput("Enter book name to find: ");
+                String clientName = getUserInput("Enter client name: ");
+                bookingController.saveBooking(bookName, clientName);
+                break;
+            case "15":
                 System.exit(0);
                 break;
             default:
@@ -51,11 +62,12 @@ public class Main {
     public static void displayMenu() {
         System.out.println("""
                 Welcome to library management!
-                1. Find books by name
-                2. Display all book available
-                3. Borrow book
-                4. Return book
-                5. Exit
+                1. Display all books available
+                2. Find book by name
+                3. Display all users in system
+                4. Find user by name
+                5. 
+                6. Borrow book
                                 
                 Enter your option:
                 """);

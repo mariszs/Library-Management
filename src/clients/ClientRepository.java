@@ -1,26 +1,46 @@
-package clients;/*package clients;
+package clients;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
+import connection.ConnectionInitializer;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class ClientRepository {
-
-    private Connection connection;
+    private ConnectionInitializer connectionInitializer;
 
     public ClientRepository() {
-        this.initialiseConnection();
+        this.connectionInitializer = new ConnectionInitializer();
     }
 
-    private void initialiseConnection() {
-        String dbUsername = "JREE28";
-        String dbPassword = "password";
-        String url = "jdbc:mysql://localhost:3306/libraryManagerApp?serverTimezone=UTC";
+    public ArrayList<Client> getAllClients() throws SQLException {
+        ResultSet resultSet = connectionInitializer.getPreparedStatement("SELECT * FROM clients").executeQuery();
+        ArrayList<Client> clients = new ArrayList<>();
 
-        try {
-            this.connection = DriverManager.getConnection(url, dbUsername, dbPassword);
-            System.out.println("<<<< Connection to database successful >>>>");
-        } catch (Exception exception) {
-            exception.printStackTrace();
+        while (resultSet.next()) {
+            clients.add(this.convertResultSetToClient(resultSet));
         }
+        return clients;
     }
-}*/
+
+    public Client findClientByName(String clientName) throws SQLException {
+        ResultSet resultSet = connectionInitializer.getPreparedStatement("SELECT * FROM clients WHERE clientName = '" + clientName + "'").executeQuery();
+
+        if (resultSet.next()) {
+            return this.convertResultSetToClient(resultSet);
+        }
+        throw new SQLException("Book " + clientName + " not found");
+
+    }
+
+
+
+    private Client convertResultSetToClient(ResultSet resultSet) throws SQLException {
+        return new Client(
+                resultSet.getInt("clientId"),
+                resultSet.getString("clientName"),
+                resultSet.getString("email"),
+                resultSet.getInt("phone")
+        );
+    }
+}

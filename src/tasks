@@ -16,6 +16,8 @@ Booking
     borrow book - join book id and client id >
     return book - update booking table >
 
+    1. system input - insert client ID
+
 
 (Client returns book
 				Book is late: Client info updated: Minus points : Blocked

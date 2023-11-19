@@ -29,6 +29,7 @@ public class BookRepository {
 
         if (resultSet.next()) {
             return this.convertResultSetToBook(resultSet);
+
         }
         throw new SQLException("Book " + bookName + " not found");
 

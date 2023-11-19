@@ -17,9 +17,9 @@ public class Client {
     private String clientName;
     private String email;
     private int phone;
-    private int minusPoints;
-    private boolean isBlocked; // ? boolean?
-    private int booksBorrowed;
+    // private int minusPoints;
+    // private boolean isBlocked; // ? boolean?
+    // private int booksBorrowed;
 
 
 }

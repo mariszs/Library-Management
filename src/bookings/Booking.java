@@ -17,6 +17,8 @@ public class Booking {
     @Id
     @GeneratedValue
     private int bookingId;
-    private Timestamp bookingDate;
-    private Date returnDate;
+    private int clientId;
+    private int bookId;
+    // private Timestamp bookingDate;
+    // private Date returnDate;
 }

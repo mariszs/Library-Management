@@ -13,7 +13,8 @@ public class BookController {
     }
 
     public void findBookByName(String bookName) {
-        bookService.findBookByName(bookName);
+        Book book = bookService.findBookByName(bookName);
+        System.out.println(book);
     }
 
 
