@@ -1,4 +1,4 @@
-package bookings;
+package main.bookings;
 
 public class BookingController {
 }

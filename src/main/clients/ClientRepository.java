@@ -1,11 +1,11 @@
-package clients;/*package clients;
+package main.clients;/*package main.clients;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 
 public class ClientRepository {
 
-    private Connection connection;
+    private Connection main.connection;
 
     public ClientRepository() {
         this.initialiseConnection();
@@ -17,7 +17,7 @@ public class ClientRepository {
         String url = "jdbc:mysql://localhost:3306/libraryManagerApp?serverTimezone=UTC";
 
         try {
-            this.connection = DriverManager.getConnection(url, dbUsername, dbPassword);
+            this.main.connection = DriverManager.getConnection(url, dbUsername, dbPassword);
             System.out.println("<<<< Connection to database successful >>>>");
         } catch (Exception exception) {
             exception.printStackTrace();

@@ -1,6 +1,8 @@
-import bookings.BookingController;
-import books.BookController;
-import clients.ClientController;
+package main;
+
+import main.bookings.BookingController;
+import main.books.BookController;
+import main.clients.ClientController;
 import java.util.Scanner;
 
 public class Main {

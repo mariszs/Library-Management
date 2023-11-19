@@ -1,4 +1,4 @@
-package clients;
+package main.clients;
 
 public class ClientService {
 }

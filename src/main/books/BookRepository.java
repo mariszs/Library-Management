@@ -1,6 +1,6 @@
-package books;
+package main.books;
 
-import connection.ConnectionInitializer;
+import main.connection.ConnectionInitializer;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -15,7 +15,7 @@ public class BookRepository {
     }
 
     public ArrayList<Book> getAllBooks() throws SQLException {
-        ResultSet resultSet = connectionInitializer.getPreparedStatement("SELECT * FROM books").executeQuery();
+        ResultSet resultSet = connectionInitializer.getPreparedStatement("SELECT * FROM main.books").executeQuery();
         ArrayList<Book> books = new ArrayList<>();
 
         while (resultSet.next()) {
@@ -25,7 +25,7 @@ public class BookRepository {
     }
 
     public Book findBookByName(String bookName) throws SQLException {
-        ResultSet resultSet = connectionInitializer.getPreparedStatement("SELECT * FROM books WHERE bookName = '" + bookName + "'").executeQuery();
+        ResultSet resultSet = connectionInitializer.getPreparedStatement("SELECT * FROM main.books WHERE bookName = '" + bookName + "'").executeQuery();
 
         if (resultSet.next()) {
             return this.convertResultSetToBook(resultSet);

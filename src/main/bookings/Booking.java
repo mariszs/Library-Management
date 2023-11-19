@@ -1,4 +1,4 @@
-package bookings;
+package main.bookings;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
