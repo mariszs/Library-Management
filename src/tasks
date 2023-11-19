@@ -1,0 +1,23 @@
+
+Librarian (system, program)
+Books
+    see all books (get list of books)
+    search book (whole name, part of name?)
+    add book?
+    borrow book - join book and client
+    return book
+					Client borrows book: Book list updated ?
+Client
+    see all clients
+    search clients
+    >remove booksBorrowed!
+
+Booking
+    borrow book - join book id and client id >
+    return book - update booking table >
+
+
+(Client returns book
+				Book is late: Client info updated: Minus points : Blocked
+				Book not late: Book list updated)
+
