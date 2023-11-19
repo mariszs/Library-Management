@@ -1,4 +1,4 @@
-package main.connection;
+package connection;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -30,4 +30,3 @@ public class ConnectionInitializer {
         return connection.prepareStatement(query);
     }
 }
-

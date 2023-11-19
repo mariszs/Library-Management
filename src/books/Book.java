@@ -1,4 +1,4 @@
-package main.books;
+package books;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -21,4 +21,3 @@ public class Book {
     private String department;
 
 }
-

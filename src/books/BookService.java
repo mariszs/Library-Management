@@ -1,13 +1,13 @@
-package main.books;
+package books;
 
 public class BookService {
 
-    // method display all main.books, returns list of all main.books
+    // method display all books, returns list of all books
 
     private final BookRepository bookRepository;
 
 
-    // call display all main.books from service class
+    // call display all books from service class
 
     public BookService() {
         this.bookRepository = new BookRepository();

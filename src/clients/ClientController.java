@@ -1,6 +1,6 @@
-package main.clients;
+package clients;
 
-import main.connection.ConnectionInitializer;
+import connection.ConnectionInitializer;
 
 import java.util.Scanner;
 

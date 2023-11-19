@@ -1,4 +1,4 @@
-package main.bookings;
+package bookings;
 
 public class BookingService {
 }
