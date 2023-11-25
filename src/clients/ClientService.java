@@ -50,12 +50,10 @@ public class ClientService {
         try {
             Client client = this.findClientByName(clientName);
             this.clientRepository.deleteClient(client);
-
         } catch (Exception exception) {
             System.out.println("Failed to delete client, reason: " + exception.getMessage());
         }
     }
-
 
     private String getUserInput(String message) {
         System.out.println(message);

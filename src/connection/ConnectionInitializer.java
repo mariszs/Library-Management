@@ -10,15 +10,6 @@ public class ConnectionInitializer {
     private Connection connection;
     private static ConnectionInitializer instance;
 
-    //  private ConnectionInitializer() {}
-
-//  public ConnectionInitializer() {this.initialiseConnection();}
-
-//    private static final ConnectionInitializer INSTANCE = new ConnectionInitializer();
-//    private ConnectionInitializer() {}
-//    public static ConnectionInitializer getInstance() {
-//        return INSTANCE;
-//    }
 
     private ConnectionInitializer() {
         String dbUsername = "UusKasutaja";

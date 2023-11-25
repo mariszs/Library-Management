@@ -36,36 +36,25 @@ public class Main {
                 Timestamp bookingDate = new Timestamp(System.currentTimeMillis());
                 bookingController.saveBooking(bookName, clientName, bookingDate);
                 break;
-            case "4": // Return book
-                // TODO: return book
-                break;
-            case "5": // Display all books borrowed out currently
+            case "4": // Display all books borrowed out currently
                 bookingController.displayAllBookings();
-                // TODO: have output in a better format
+                // TODO: have output in a better format: names f.e.
                 break;
-            case "6": // Add new book to library
-                // TODO: add new books
-                break;
-            case "7": // Delete book from library
-                // TODO: delete book
-                break;
-
-            case "8": // Display all clients in system
+            case "5": // Display all clients in system
                 clientController.displayAllClients();
                 break;
-            case "9": // Find client by name
+            case "6": // Find client by name
                 String nameToFind = getUserInput("Enter client name to find:");
                 clientController.findClientByName(nameToFind);
                 break;
-            case "10": // Create new client account
+            case "7": // Create new client account
                 clientController.createClient();
                 break;
-            case "11": // Delete client
-                // TODO: delete client
-                // String clientToDelete = getUserInput("Enter client name to delete:");
-                // clientController.deleteClient(clientToDelete);
+            case "8": // Delete client
+                String clientToDelete = getUserInput("Enter client name to delete:");
+                clientController.deleteClient(clientToDelete);
                 break;
-            case "12": // Exit system
+            case "9": // Exit system
                 System.exit(0);
                 break;
             default:
@@ -81,18 +70,15 @@ public class Main {
                 1. Display all books available
                 2. Find book by name
                 3. Borrow book
-                4. Return book
-                5. Display all books borrowed out currently
-                6. Add new book to library
-                7. Delete book from library
-                8. Display all clients in system
-                9. Find client by name
-                10. Create new client account
-                11. Delete client
-                12. Exit
+                4. Display all books borrowed out currently
+                5. Display all clients
+                6. Find client by name
+                7. Create new client account
+                8. Delete client
+                9. Exit
                                 
-                Enter your option:
-                """);
+                Enter your option:  """);
+
     }
 
     private static String getUserInput(String message) {

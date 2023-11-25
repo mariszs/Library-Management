@@ -30,7 +30,7 @@ public class ClientRepository {
         if (resultSet.next()) {
             return this.convertResultSetToClient(resultSet);
         }
-        throw new SQLException("Book " + clientName + " not found");
+        throw new SQLException("Client " + clientName + " not found");
     }
 
     public void createClient(Client client) throws SQLException {
@@ -43,12 +43,16 @@ public class ClientRepository {
         preparedStatement.close();
     }
 
-    public void deleteClient(Client client) throws SQLException {
-        PreparedStatement preparedStatement = connectionInitializer.getPreparedStatement(
-                "DELETE FROM clients WHERE clientName = '" + client + "'");
+    public void deleteClient(Client client) {
+      try {
+          PreparedStatement preparedStatement = connectionInitializer.getPreparedStatement(
+                  "DELETE FROM clients WHERE clientId = " + client.getClientId());
+          preparedStatement.executeUpdate();
+          //System.out.println("Client deleted successfully: " + client);
 
-        preparedStatement.executeUpdate();
-
+      } catch (SQLException exception) {
+          exception.printStackTrace();
+      }
 
     }
 

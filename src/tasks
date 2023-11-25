@@ -12,8 +12,8 @@ Client
 
 Booking
     borrow book - join book id and client id
-    > add message after booking
-    > see all bookings
+    add message after booking
+    see all bookings
         ? return book?
 
 
