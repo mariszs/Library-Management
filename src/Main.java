@@ -8,18 +8,11 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         String userChoice = "";
-        while (!userChoice.strip().equals("8")) {
+        while (!userChoice.strip().equals("12")) {
             displayMenu();
             userChoice = scanner.nextLine();
             handleUserChoice(userChoice);
         }
-//        Book book = new Book();
-//        book.setBookName();
-//        book.setAuthor();
-//        book.setPublishingYear();
-//        book.setDepartment();
-
-        //      Client client = new Client();
     }
 
     private static void handleUserChoice(String userChoice) {
@@ -28,29 +21,46 @@ public class Main {
         BookController bookController = new BookController();
 
         switch (userChoice) {
-            case "1":
+            case "1": // Display all books available
                 bookController.displayAllBooks();
                 break;
-            case "2":
+            case "2": // Find book by name
                 String valueToFind = getUserInput("Enter book name to find:");
                 bookController.findBookByName(valueToFind);
                 break;
-            case "3":
-                clientController.displayAllClients();
-                break;
-            case "4":
-                String nameToFind = getUserInput("Enter client name to find:");
-                clientController.findClientByName(nameToFind);
-                break;
-            case "5":
-                bookingController.displayAllBookings();
-                break;
-            case "6":
+            case "3": // Borrow book
                 String bookName = getUserInput("Enter book name to find: ");
                 String clientName = getUserInput("Enter client name: ");
                 bookingController.saveBooking(bookName, clientName);
                 break;
-            case "15":
+            case "4": // Return book
+                // TODO: return book
+                break;
+            case "5": // Display all books borrowed out currently
+                bookingController.displayAllBookings();
+                // TODO: have output in a better format
+                break;
+            case "6": // Add new book to library
+                // TODO: add new books
+                break;
+            case "7": // Delete book from library
+                // TODO: delete book
+                break;
+
+            case "8": // Display all clients in system
+                clientController.displayAllClients();
+                break;
+            case "9": // Find client by name
+                String nameToFind = getUserInput("Enter client name to find:");
+                clientController.findClientByName(nameToFind);
+                break;
+            case "10": // Add new client
+                // TODO: add new client
+                break;
+            case "11": // Delete client
+                // TODO: delete client
+                break;
+            case "12": // Exit system
                 System.exit(0);
                 break;
             default:
@@ -61,13 +71,20 @@ public class Main {
 
     public static void displayMenu() {
         System.out.println("""
-                Welcome to library management!
+                ----- Welcome to library management! -----
+                
                 1. Display all books available
                 2. Find book by name
-                3. Display all users in system
-                4. Find user by name
-                5. 
-                6. Borrow book
+                3. Borrow book
+                4. Return book
+                5. Display all books borrowed out currently
+                6. Add new book to library
+                7. Delete book from library
+                8. Display all clients in system
+                9. Find client by name
+                10. Add new client
+                11. Delete client
+                12. Exit
                                 
                 Enter your option:
                 """);
