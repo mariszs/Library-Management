@@ -37,8 +37,8 @@ public class BookingRepository {
         return new Booking(
                 resultSet.getInt("bookingId"),
                 resultSet.getInt("clientId"),
-                resultSet.getInt("bookId")
-                //resultSet.getTimestamp("bookingDate")
+                resultSet.getInt("bookId"),
+                resultSet.getTimestamp("bookingDate")
         );
     }
 
@@ -47,7 +47,7 @@ public class BookingRepository {
             preparedStatement.setInt(1, booking.getBookingId());
             preparedStatement.setInt(2, booking.getClientId());
             preparedStatement.setInt(3, booking.getBookId());
-            //preparedStatement.setTimestamp(4, booking.getBookingDate());
+            preparedStatement.setTimestamp(4, booking.getBookingDate());
             preparedStatement.executeUpdate();
             preparedStatement.close();
     }

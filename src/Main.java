@@ -54,11 +54,13 @@ public class Main {
                 String nameToFind = getUserInput("Enter client name to find:");
                 clientController.findClientByName(nameToFind);
                 break;
-            case "10": // Add new client
-                // TODO: add new client
+            case "10": // Create new client account
+                clientController.createClient();
                 break;
             case "11": // Delete client
                 // TODO: delete client
+                // String clientToDelete = getUserInput("Enter client name to delete:");
+                // clientController.deleteClient(clientToDelete);
                 break;
             case "12": // Exit system
                 System.exit(0);
@@ -82,7 +84,7 @@ public class Main {
                 7. Delete book from library
                 8. Display all clients in system
                 9. Find client by name
-                10. Add new client
+                10. Create new client account
                 11. Delete client
                 12. Exit
                                 

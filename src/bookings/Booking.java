@@ -19,6 +19,6 @@ public class Booking {
     private int bookingId;
     private int clientId;
     private int bookId;
-    // private Timestamp bookingDate;
+    private Timestamp bookingDate;
     // private Date returnDate;
 }

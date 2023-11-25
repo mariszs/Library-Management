@@ -52,5 +52,5 @@ public class BookingService {
         bookingRepository.saveBooking(booking);
     }
 
-    // add method: reserve book (inner join from booking, client and book?)
+
 }

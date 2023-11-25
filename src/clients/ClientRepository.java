@@ -2,6 +2,7 @@ package clients;
 
 import connection.ConnectionInitializer;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -30,6 +31,23 @@ public class ClientRepository {
             return this.convertResultSetToClient(resultSet);
         }
         throw new SQLException("Book " + clientName + " not found");
+    }
+
+    public void createClient(Client client) throws SQLException {
+        PreparedStatement preparedStatement = connectionInitializer.getPreparedStatement("INSERT INTO clients(clientName, email, phone) VALUES(?,?,?)");
+        preparedStatement.setString(1, client.getClientName());
+        preparedStatement.setString(2, client.getEmail());
+        preparedStatement.setInt(3, client.getPhone());
+
+        preparedStatement.executeUpdate();
+        preparedStatement.close();
+    }
+
+    public void deleteClient(Client client) throws SQLException {
+        PreparedStatement preparedStatement = connectionInitializer.getPreparedStatement("DELETE FROM clients WHERE clientName = '" + client + "'");
+
+        preparedStatement.executeUpdate();
+
 
     }
 

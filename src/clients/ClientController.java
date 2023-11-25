@@ -15,4 +15,14 @@ public class ClientController {
         Client client = clientService.findClientByName(clientName);
         System.out.println(client);
     }
+
+    public void createClient() {
+        clientService.createClient();
+        System.out.println("Client is created successfully!");
+    }
+
+    public void deleteClient(String clientName) {
+        clientService.deleteClient(clientName);
+        System.out.println("Client deleted successfully!");
+    }
 }
