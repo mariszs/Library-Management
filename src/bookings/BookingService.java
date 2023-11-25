@@ -6,8 +6,6 @@ import lombok.SneakyThrows;
 
 import java.sql.Timestamp;
 import java.time.Instant;
-import java.time.LocalDate;
-import java.util.Date;
 
 public class BookingService {
     private final BookingRepository bookingRepository;

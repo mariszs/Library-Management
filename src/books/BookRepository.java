@@ -11,7 +11,7 @@ public class BookRepository {
     private ConnectionInitializer connectionInitializer;
 
     public BookRepository() {
-        this.connectionInitializer = new ConnectionInitializer();
+        this.connectionInitializer = ConnectionInitializer.getInstance();
     }
 
     public ArrayList<Book> getAllBooks() throws SQLException {
@@ -25,7 +25,8 @@ public class BookRepository {
     }
 
     public Book findBookByName(String bookName) throws SQLException {
-        ResultSet resultSet = connectionInitializer.getPreparedStatement("SELECT * FROM books WHERE bookName = '" + bookName + "'").executeQuery();
+        ResultSet resultSet = connectionInitializer.getPreparedStatement(
+                "SELECT * FROM books WHERE bookName = '" + bookName + "'").executeQuery();
 
         if (resultSet.next()) {
             return this.convertResultSetToBook(resultSet);

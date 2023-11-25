@@ -11,7 +11,7 @@ public class ClientRepository {
     private ConnectionInitializer connectionInitializer;
 
     public ClientRepository() {
-        this.connectionInitializer = new ConnectionInitializer();
+        this.connectionInitializer = ConnectionInitializer.getInstance();
     }
 
     public ArrayList<Client> getAllClients() throws SQLException {
@@ -44,13 +44,13 @@ public class ClientRepository {
     }
 
     public void deleteClient(Client client) throws SQLException {
-        PreparedStatement preparedStatement = connectionInitializer.getPreparedStatement("DELETE FROM clients WHERE clientName = '" + client + "'");
+        PreparedStatement preparedStatement = connectionInitializer.getPreparedStatement(
+                "DELETE FROM clients WHERE clientName = '" + client + "'");
 
         preparedStatement.executeUpdate();
 
 
     }
-
 
 
     private Client convertResultSetToClient(ResultSet resultSet) throws SQLException {

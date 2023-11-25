@@ -6,15 +6,23 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class ConnectionInitializer {
+
     private Connection connection;
+    private static ConnectionInitializer instance;
 
-    public ConnectionInitializer() {
-        this.initialiseConnection();
-    }
+    //  private ConnectionInitializer() {}
 
-    private void initialiseConnection() {
-        String dbUsername = "JREE28";
-        String dbPassword = "password";
+//  public ConnectionInitializer() {this.initialiseConnection();}
+
+//    private static final ConnectionInitializer INSTANCE = new ConnectionInitializer();
+//    private ConnectionInitializer() {}
+//    public static ConnectionInitializer getInstance() {
+//        return INSTANCE;
+//    }
+
+    private ConnectionInitializer() {
+        String dbUsername = "UusKasutaja";
+        String dbPassword = "Lamp12345";
         String url = "jdbc:mysql://localhost:3306/libraryManagerApp?serverTimezone=UTC";
 
         try {
@@ -23,8 +31,15 @@ public class ConnectionInitializer {
         } catch (Exception exception) {
             exception.printStackTrace();
         }
-
     }
+
+    public static ConnectionInitializer getInstance() {
+        if (instance == null) {
+            instance = new ConnectionInitializer();
+        }
+        return instance;
+    }
+
     public PreparedStatement getPreparedStatement(String query) throws SQLException {
 
         return connection.prepareStatement(query);

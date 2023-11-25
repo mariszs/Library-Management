@@ -1,6 +1,5 @@
 package bookings;
 
-import clients.Client;
 import connection.ConnectionInitializer;
 
 import java.sql.PreparedStatement;
@@ -11,7 +10,7 @@ import java.util.ArrayList;
 public class BookingRepository {
     private ConnectionInitializer connectionInitializer;
     public BookingRepository() {
-        this.connectionInitializer = new ConnectionInitializer();
+        this.connectionInitializer = ConnectionInitializer.getInstance();
     }
 
     public ArrayList<Booking> getAllBookings() throws SQLException {
