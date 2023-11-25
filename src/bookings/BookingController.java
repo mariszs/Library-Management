@@ -1,6 +1,8 @@
 package bookings;
 
 
+import java.sql.Timestamp;
+
 public class BookingController {
     private BookingService bookingService;
 
@@ -16,7 +18,9 @@ public class BookingController {
         bookingService.findBookingById(bookingId);
     }
 
-    public void saveBooking(String bookName, String clientName) {
-        bookingService.saveBooking(bookName, clientName);
+    public void saveBooking(String bookName, String clientName, Timestamp bookingDate) {
+        bookingService.saveBooking(bookName, clientName, bookingDate);
+
+        System.out.println("Booking is saved! Client: " + clientName + ", book: " + bookName);
     }
 }

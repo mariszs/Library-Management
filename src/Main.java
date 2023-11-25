@@ -1,6 +1,8 @@
 import bookings.BookingController;
 import books.BookController;
 import clients.ClientController;
+
+import java.sql.Timestamp;
 import java.util.Scanner;
 
 public class Main {
@@ -31,7 +33,8 @@ public class Main {
             case "3": // Borrow book
                 String bookName = getUserInput("Enter book name to find: ");
                 String clientName = getUserInput("Enter client name: ");
-                bookingController.saveBooking(bookName, clientName);
+                Timestamp bookingDate = new Timestamp(System.currentTimeMillis());
+                bookingController.saveBooking(bookName, clientName, bookingDate);
                 break;
             case "4": // Return book
                 // TODO: return book

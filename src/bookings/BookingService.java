@@ -5,6 +5,7 @@ import clients.ClientService;
 import lombok.SneakyThrows;
 
 import java.sql.Timestamp;
+import java.time.Instant;
 import java.time.LocalDate;
 import java.util.Date;
 
@@ -38,17 +39,18 @@ public class BookingService {
     }
 
     @SneakyThrows
-    public void saveBooking(String bookName, String clientName) {
+    public void saveBooking(String bookName, String clientName, Timestamp bookingDate) {
         int bookId = bookService.findBookByName(bookName).getBookId();
         int clientId = clientService.findClientByName(clientName).getClientId();
 
-        // LocalDate date = new Date();
-        // System.out.println(new Timestamp(date.getTime()));
+        Instant instant = Instant.now();
+        Timestamp timestamp = Timestamp.from(instant);
+        System.out.println("Booking time: " + timestamp);
 
         Booking booking = new Booking();
         booking.setBookId(bookId);
         booking.setClientId(clientId);
-        // booking.setBookingDate();
+        booking.setBookingDate(bookingDate);
         bookingRepository.saveBooking(booking);
     }
 

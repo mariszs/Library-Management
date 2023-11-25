@@ -43,7 +43,8 @@ public class BookingRepository {
     }
 
     public void saveBooking(Booking booking) throws SQLException {
-        PreparedStatement preparedStatement = connectionInitializer.getPreparedStatement("INSERT INTO booking(bookingId, clientId, bookId) VALUES(?, ?, ?)");
+        PreparedStatement preparedStatement = connectionInitializer.getPreparedStatement(
+                "INSERT INTO booking(bookingId, clientId, bookId, bookingDate) VALUES(?, ?, ?, ?)");
             preparedStatement.setInt(1, booking.getBookingId());
             preparedStatement.setInt(2, booking.getClientId());
             preparedStatement.setInt(3, booking.getBookId());
